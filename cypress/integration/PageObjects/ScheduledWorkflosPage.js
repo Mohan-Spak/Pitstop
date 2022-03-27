@@ -8,13 +8,11 @@ class ScheduledWorkflowsPage
     }
     SelectWorkflow_scheduleWorkflow_Edit()
     {
-            cy.get('tr.row-in-focus').contains('tr','Project#001').within(() =>{
-            cy.get('td').eq(0)
-            //Schedule workflow -> click on edit icon button
-            cy.get('.schedule-button').eq(0).click()
-            cy.wait(2000)
-            })
+    cy.get('th.border-r-2').contains('th','Project#001').should('be.visible')
 
+     
+    cy.get(':nth-child(3)>:nth-child(9)>div>.m-l-1>.schedule-button').click()
+           
              //Edit workflow short description
             cy.get('#formGridShortDesc > .form-control').clear().type('an apparatus using mechanical power and having several parts Updates')
             //Edit long Description
@@ -27,41 +25,33 @@ class ScheduledWorkflowsPage
 
     SelectWorkflow_scheduleWorkflow_Reschedule()
     {
-        // Schedule workflow page -> select table all table row contain workflow name
-        cy.get('tr.row-in-focus').contains('tr','Project#001').within(() =>{
-        //Schedule workflow workflow -> first column contain project name
-        cy.get('td').eq(0)
-        // Schedule workflow  -> click on schedule workflow calender icon
-        cy.get('.schedule-button').eq(1).click()
-        cy.wait(2000)
-        })
+        
+        cy.get(':nth-child(3) > :nth-child(9) > div > :nth-child(2) > .schedule-button').click()
+         cy.wait(6000)
+
         //Schedule workflow -> schedule workflow calender -> click on schedule button
         cy.get('.m-v-4 > .btn').click()
     }
 
     SelectWorkflow_scheduleWorkflow_DeleteWorkflow()
     {
-         // Schedule workflow -> select table all table row contain workflow name
-        cy.get('tr.row-in-focus').contains('tr','Project#001').within(() =>{
-        //Schedule workflow -> first column contain project name
-        cy.get('td').eq(0)
-        // Schedule workflow -> click on schedule workflow calender icon
-        cy.get('.schedule-button').eq(2).click()
-        cy.wait(2000)
-        })
+        cy.get(':nth-child(3) > :nth-child(9) > div > :nth-child(3) > .schedule-button').click()
     }
 
     SelectWorkflow_scheduleWorkflow_verifyReport()
     {
         
-   // Schedule workflow -> select table all table row contain workflow name
-    cy.get('tr.row-in-focus').contains('tr','Completed').within(() =>{
-    //Schedule workflow -> third column contain status completed
-    cy.get('td').eq(3)
-    // Schedule workflow -> click on Report icon
-    cy.get('.schedule-button').eq(0).click()
-    cy.wait(2000)
-    })
+    cy.get('tbody tr').contains('Completed')
+    cy.get('.schedule-button').click()
+
+//    // Schedule workflow -> select table all table row contain workflow name
+//     cy.get('tr.row-in-focus').contains('tr','Completed').within(() =>{
+//     //Schedule workflow -> third column contain status completed
+//     cy.get('td').eq(3)
+//     // Schedule workflow -> click on Report icon
+//     cy.get('.schedule-button').eq(0).click()
+//     cy.wait(2000)
+//     })
 
     }
 }

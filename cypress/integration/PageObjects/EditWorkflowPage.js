@@ -3,12 +3,11 @@ class EditWorkflowPage
 
 selectworkflowtoedit()
 {
-    cy.get('tr.row-in-focus').contains('tr','Project#001').within(() =>{
-    cy.get('td').eq(0)
-    //workflow overview -> click on edit icon button
-    cy.get('.schedule-button').eq(0).click()
-    cy.wait(2000)
-    })
+    cy.get('th.border-r-2').contains('th','Project#001').should('be.visible')
+
+    cy.get('tbody tr:nth-child(2)')
+    cy.get('svg.schedule-button.m-r-10').eq(0).click()
+   
     //Edit workflow short description
     cy.get('#formGridShortDesc > .form-control').clear().type('an apparatus using mechanical power and having several parts')
     //Edit long Description
@@ -22,14 +21,11 @@ selectworkflowtoedit()
 
 SelectWorkflow_Schedule()
 {
-    // workflow overview-> select table all table row contain workflow name
-    cy.get('tr.row-in-focus').contains('tr','Project#001').within(() =>{
-    //workflow overview -> first column contain project name
-    cy.get('td').eq(0)
+    cy.get('th.border-r-2').contains('th','Project#001').should('be.visible')
+    cy.get('tbody tr:nth-child(2)')
     // workflow overview -> click on schedule workflow calender icon
-    cy.get('.schedule-button').eq(1).click()
+    cy.get('svg.schedule-button.m-r-10').eq(1).click()
     cy.wait(2000)
-    })
     //workflow overview -> schedule workflow calender -> click on schedule button
     cy.get('button.btn.btn-primary.global-btn-class').click()
     
@@ -39,14 +35,13 @@ SelectWorkflow_Schedule()
 
 DeleteWorkflow()
 {
-    // workflow overview-> select table all table row contain workflow name
-    cy.get('tr.row-in-focus').contains('tr','Project#001').within(() =>{
-    //workflow overview -> first column contain project name
-    cy.get('td').eq(0)
+    cy.get('th.border-r-2').contains('th','Project#001').should('be.visible')
+    cy.get('tbody tr:nth-child(2)')   
+
     // workflow overview -> click on schedule workflow calender icon
     cy.get('.schedule-button').eq(2).click()
     cy.wait(2000)
-    })
+    
 }
 
 }

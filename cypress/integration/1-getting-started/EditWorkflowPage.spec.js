@@ -12,14 +12,15 @@ describe ('Test Suite Edit, Schedule and Delete workflow form workflow overview'
     workflow.workflowoverview()
     })
 
-    it('Select workflow from list & Edit' , function()
+    it.skip('Select workflow from list & Edit' , function()
     { 
         Editflow.selectworkflowtoedit()
+        
         workflow.Finish_Workflow_Creation()
         cy.wait(6000)   
     })
 
-    it('Select workflow from list & Schedule' , function()
+    it.skip('Select workflow from list & Schedule' , function()
     {
         Editflow.SelectWorkflow_Schedule()
         cy.wait(6000)

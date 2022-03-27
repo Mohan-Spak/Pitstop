@@ -14,7 +14,7 @@ visit()
 workflowoverview()
 {
 cy.get('.nav-link').eq(2).click()
-cy.get('div#component_name_create_new_workflow').contains('Workflow Overview').should('be.visible')
+cy.get('div#component_name_create_new_workflow').contains('Workflow Template Overview').should('be.visible')
 }
 
 CreateNewWorkflow()

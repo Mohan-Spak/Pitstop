@@ -16,19 +16,19 @@ describe(' In Schedule workflow page Edit, Schedule and delete workflow and view
     SchedulePage.SceduleWorkflowPage()
     })
 
-    it('Select workflow from schedule workflow page and edit', function()
+    it.skip('Select workflow from schedule workflow page and edit', function()
     {
         SchedulePage.SelectWorkflow_scheduleWorkflow_Edit()
         cy.wait(3000)
 
-        SchedulePage.SelectWorkflow_scheduleWorkflow_Reschedule()
-        cy.wait(3000)
+       SchedulePage.SelectWorkflow_scheduleWorkflow_Reschedule()
+       cy.wait(3000)
 
-        SchedulePage.SelectWorkflow_scheduleWorkflow_DeleteWorkflow()
+       SchedulePage.SelectWorkflow_scheduleWorkflow_DeleteWorkflow()
     })
 
     // Alert confirmation
-    it('Alert confirmation to delete workflow', () => {
+    it.skip('Alert confirmation to delete workflow', () => {
         cy.contains('Are you sure you want to delete this scheduled workflow ?').click()
         cy.on('window:confirm', (str) => {
             expect(str).to.equal('Are you sure you want to delete this scheduled workflow ?')
